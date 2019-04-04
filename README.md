@@ -23,7 +23,8 @@ This is difficult in the pond at REEL. Instead, the origin was set in the vicon 
 
 
 ## TODO:
-expand the provided z calibration to x and y
+- Expand the provided z calibration to x and y - done HP 4/03/19
+- Test the new calibration service 
 
 -----
 
