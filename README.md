@@ -2,6 +2,24 @@
 
 See launch/vicon_pond.launch for a sample launch file.
 
+``` xml
+<launch>
+	<node pkg="vicon_bridge" type="vicon_bridge" name="vicon" output="screen">
+		<param name="stream_mode" value="ClientPull" type="str" />
+		<param name="datastream_hostport" value="192.168.10.1:801" type="str" />
+		<!--param name="tf_ref_frame_id" value="/map" type="str" /-->
+		<param name="tf_ref_frame_id" value="/world" type="str" />
+	</node>
+
+    <!-- Remove this line and use /map reference above -->
+	<node pkg="tf" type="static_transform_publisher" name="vicon_offset" args="0 0 0 0 0 0 /map /world  100"/>
+</launch>
+
+
+```
+
+
+
 As described below, the name of the object and segment is detected automatically.
 For the example below, the object and system were named 'ducky'
 
@@ -23,7 +41,8 @@ This is difficult in the pond at REEL. Instead, the origin was set in the vicon 
 
 
 ## TODO:
-expand the provided z calibration to x and y
+- Expand the provided z calibration to x and y - done HP 4/03/19
+- Test the new calibration service 
 
 -----
 
