@@ -6,13 +6,12 @@ See launch/vicon_pond.launch for a sample launch file.
 <launch>
 	<node pkg="vicon_bridge" type="vicon_bridge" name="vicon" output="screen">
 		<param name="stream_mode" value="ClientPull" type="str" />
-		<!--param name="datastream_hostport" value="192.168.1.102" type="str" /-->
 		<param name="datastream_hostport" value="192.168.10.1:801" type="str" />
 		<!--param name="tf_ref_frame_id" value="/map" type="str" /-->
 		<param name="tf_ref_frame_id" value="/world" type="str" />
 	</node>
 
-	<!--node pkg="tf" type="static_transform_publisher" name="vicon_offset" args="-0.2205 0 0.37 1.5708 0 0 /map /world  100"/-->
+    <!-- Remove this line and use /map reference above -->
 	<node pkg="tf" type="static_transform_publisher" name="vicon_offset" args="0 0 0 0 0 0 /map /world  100"/>
 </launch>
 
