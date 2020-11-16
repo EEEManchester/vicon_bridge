@@ -1,24 +1,6 @@
 ## Additional Notes from REEL on the Mallard platform
 
-See launch/vicon_pond.launch for a sample launch file.
-
-``` xml
-<launch>
-	<node pkg="vicon_bridge" type="vicon_bridge" name="vicon" output="screen">
-		<param name="stream_mode" value="ClientPull" type="str" />
-		<param name="datastream_hostport" value="192.168.10.1:801" type="str" />
-		<!--param name="tf_ref_frame_id" value="/map" type="str" /-->
-		<param name="tf_ref_frame_id" value="/world" type="str" />
-	</node>
-
-    <!-- Remove this line and use /map reference above -->
-	<node pkg="tf" type="static_transform_publisher" name="vicon_offset" args="0 0 0 0 0 0 /map /world  100"/>
-</launch>
-
-
-```
-
-
+See launch/vicon.launch for a sample launch file. Modify the ip_lan or ip_wifi address in the launch file to match the port VICON is publishing to.
 
 As described below, the name of the object and segment is detected automatically.
 For the example below, the object and system were named 'ducky'
@@ -28,7 +10,7 @@ plug laptop into the vicon system
 run other ROS nodes, e.g., Mallard
 
 ```bash
-roslaunch vicon_bridge vicon_pond.launch
+roslaunch vicon_bridge vicon.launch
 ```
 
 ```bash
