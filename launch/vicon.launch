@@ -6,6 +6,7 @@
 	<node pkg="vicon_bridge" type="vicon_bridge" name="vicon" output="screen">
 		<param name="stream_mode" value="ClientPull" type="str" />
 		<param name="tf_ref_frame_id" value="/world" type="str" />
+		<param name="broadcast_transform" value="false" type="bool" />
 		
 		<!-- make sure that IP and port reflects the one set in vicon/system IP:port -->
 		<param name="datastream_hostport" value="$(arg ip_wifi)" type="str" if="$(arg wifi)" />
